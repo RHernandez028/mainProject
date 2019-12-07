@@ -9,24 +9,56 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.send('Home Page is Open');
+    res.render('layouts/index');
 });
 
-app.get('/rnm/:id',  async (req, res) => {
-    
+
+
+app.get('/rnm', async (req, res) => {
+ 	try {
+        rnmCharacters = await fetch(`https://rickandmortyapi.com/api/character/`);
+        // .then(res=>res.json());
+        const json = await rnmCharacters.json();
+        // console.log(json);
+        const [...characters] = json.results;
+        console.log(characters);
+
+
+        res.render('layouts/rick', {
+            characters: characters
+            // data: {
+            //     name: "json.name",
+            //     image: "json.image",
+            //     status: "json.status",
+            //     gender: "json.gender",
+            //     originalDimension: "json.origin.name"
+            // }            
+        })
+
+         
+     } catch (error) {
+         console.log(error);
+     }
+});
+
+app.get('/rnm/:id', async (req, res) => {
+
     try{
         rickData = await fetch(`https://rickandmortyapi.com/api/character/${req.params.id}`);
         const json = await rickData.json();
         res.render('layouts/rick', {
             data: {
-                name: json.name
+                name: json.name,
+                image: json.image,
+                status: json.status,
+                gender: json.gender,
+                originalDimension: json.origin.name
             }            
         })
     } catch (error){
         console.log(error)
     }
 
-
 });
 
-app.listen(PORT)
+app.listen(PORT);

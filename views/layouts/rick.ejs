@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +8,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1><%=data.name%></h1>
+    <h1><%=characters.name%></h1>
     
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="navId">
         <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
+            <a href="/" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
             <a href="/rnm" class="nav-link">Rick and Morty</a>
@@ -27,6 +25,20 @@
             <a href="/sw" class="nav-link ">Star Wars</a>
         </li>
     </ul>
+
+
+<% characters.forEach((character) =>{ %>
+<div class="card" style="width: 18rem;">
+        <img src="<%= characters.image %>" class="card-img-top" alt="charcter">
+    
+        <div class="card-body">
+        <h5 class="card-title"><%=character.name%></h5>
+        <p class="card-text">Status: <%=character.status%></p>
+        <p class="card-text">Gender: <%=character.gender%></p>
+            <a href=<%=`/rnm/${character.name}`%>>GOOOOO </a>
+        </div>
+    </div>
+<% }); %>
 
     
    
