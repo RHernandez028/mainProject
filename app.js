@@ -5,6 +5,7 @@ const path = require('path')
 const app = express();
 const PORT= 8080;
 
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -21,8 +22,7 @@ app.get('/rnm', async (req, res) => {
         const json = await rnmCharacters.json();
         // console.log(json);
         const [...characters] = json.results;
-        console.log(characters);
-
+        // console.log(characters);
 
         res.render('layouts/rick', {
             characters: characters
@@ -46,7 +46,7 @@ app.get('/rnm/:id', async (req, res) => {
     try{
         rickData = await fetch(`https://rickandmortyapi.com/api/character/${req.params.id}`);
         const json = await rickData.json();
-        res.render('layouts/rick', {
+        res.render('layouts/rnmChar', {
             data: {
                 name: json.name,
                 image: json.image,

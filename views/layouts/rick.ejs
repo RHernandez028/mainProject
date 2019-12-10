@@ -8,37 +8,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1><%=characters.name%></h1>
-    
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" id="navId">
-        <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="/rnm" class="nav-link">Rick and Morty</a>
-        </li>
-        <li class="nav-item">
-            <a href="/bb" class="nav-link">Breaking Bad</a>
-        </li>
-        <li class="nav-item">
-            <a href="/sw" class="nav-link ">Star Wars</a>
-        </li>
-    </ul>
+        <%- include('partials/nav') %>
 
-
-<% characters.forEach((character) =>{ %>
-<div class="card" style="width: 18rem;">
-        <img src="<%= characters.image %>" class="card-img-top" alt="charcter">
-    
-        <div class="card-body">
-        <h5 class="card-title"><%=character.name%></h5>
-        <p class="card-text">Status: <%=character.status%></p>
-        <p class="card-text">Gender: <%=character.gender%></p>
-            <a href=<%=`/rnm/${character.name}`%>>GOOOOO </a>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3">Rick and Morty Characters
+                </h1>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis modi omnis quod non earum vitae dignissimos, culpa impedit. Sint, non?</p>
+                <hr class="my-2">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi, hic?</p>
+            </div>
         </div>
-    </div>
-<% }); %>
+
+
+        <div class="container">
+                <div class="row">
+                        <% characters.forEach((character) =>{ %>
+                            <div class="col-sm">                            
+                            <div class="card" style="width: 18rem;">
+                                    <img src="<%= character.image %>" class="card-img-top" alt="charcter">
+                                    <div class="card-body">
+                                    <h5 class="card-title"><%=character.name%></h5>
+                                    <p class="card-text">Status: <%=character.status%></p>
+                                    <p class="card-text">Gender: <%=character.gender%></p>
+                                        <a href=<%=`/rnm/${character.id}`%>>GOOOOO </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                  </div>
+                </div>
+
+    
 
     
    
