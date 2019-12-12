@@ -8,14 +8,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Bharacters</h1>
     <%- include('partials/nav') %>
-    
    
-
-
-
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Bharacters</h1>
+            <p class="lead">Click the show or movie and learn about its characters!</p>
+        </div>
+    </div>
     
-   
+    <script>
+        var name = "<%=test%>";
+        console.log(name);
+        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        .then(
+            response=>response.json()
+        )
+        .then( data => console.log(data));
+    </script>
 </body>
 </html>

@@ -10,11 +10,14 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('layouts/index');
+
+    res.render('layouts/index',{
+        test: "charmander"
+    });
 });
 
 
-
+// Rick and Morty Pages
 app.get('/rnm', async (req, res) => {
  	try {
         rnmCharacters = await fetch(`https://rickandmortyapi.com/api/character/`);
@@ -22,17 +25,12 @@ app.get('/rnm', async (req, res) => {
         const json = await rnmCharacters.json();
         // console.log(json);
         const [...characters] = json.results;
+
+
         // console.log(characters);
 
         res.render('layouts/rick', {
-            characters: characters
-            // data: {
-            //     name: "json.name",
-            //     image: "json.image",
-            //     status: "json.status",
-            //     gender: "json.gender",
-            //     originalDimension: "json.origin.name"
-            // }            
+            characters: characters           
         })
 
          
@@ -59,6 +57,27 @@ app.get('/rnm/:id', async (req, res) => {
         console.log(error)
     }
 
+});
+
+
+// Breaking Bad Pages
+app.get('/bb', async (req, res) => {
+    try {
+       bbChar = await fetch(`https://www.breakingbadapi.com/api/characters/`);
+       // .then(res=>res.json());
+       const json = await bbChar.json();
+       const [...people] = json;
+
+       res.render('layouts/bbChar', {
+           people: people
+       })
+
+
+    
+        
+    } catch (error){
+        console.log(error);
+    }
 });
 
 app.listen(PORT);
