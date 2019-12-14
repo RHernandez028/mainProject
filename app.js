@@ -8,10 +8,11 @@ const PORT= 8080;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use( express.static( "public" ) );
 
 app.get('/', (req, res) => {
 
-    res.render('layouts/index',{
+    res.render('index',{
         test: "charmander"
     });
 });
@@ -29,7 +30,7 @@ app.get('/rnm', async (req, res) => {
 
         // console.log(characters);
 
-        res.render('layouts/rick', {
+        res.render('rick', {
             characters: characters           
         })
 
@@ -44,7 +45,7 @@ app.get('/rnm/:id', async (req, res) => {
     try{
         rickData = await fetch(`https://rickandmortyapi.com/api/character/${req.params.id}`);
         const json = await rickData.json();
-        res.render('layouts/rnmChar', {
+        res.render('rnmChar', {
             data: {
                 name: json.name,
                 image: json.image,
@@ -66,18 +67,36 @@ app.get('/bb', async (req, res) => {
        bbChar = await fetch(`https://www.breakingbadapi.com/api/characters/`);
        // .then(res=>res.json());
        const json = await bbChar.json();
-       const [...people] = json;
+       const [...characters] = json;
 
-       res.render('layouts/bbChar', {
-           people: people
-       })
-
-
-    
-        
+       res.render('bbChar', {
+           characters: characters
+       })  
     } catch (error){
         console.log(error);
     }
 });
+
+app.get('/bb/:id', async (req, res) => {
+    try{
+        bbData = await fetch(`https://www.breakingbadapi.com/api/characters/${req.params.id}`);
+        const json = await bbData.json();
+        console.log(json);
+
+        res.render('bbCharCards', {
+            data: {
+                name: json[0].name,
+                image: json[0].img
+            }           
+        })
+
+        
+    } catch (error){
+        console.log(error)
+    }
+});
+
+
+
 
 app.listen(PORT);

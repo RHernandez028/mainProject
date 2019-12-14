@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  </head>
+  <body>
+        <%- include('partials/nav') %>
+
+<div class="container">
+<div class="row">
+  <% characters.forEach((character) =>{ %>
+  <div class="col-lg">                            
+  <div class="card" style="width: 18rem;">
+          <img src="<%= character.img %>" class="card-img-top" alt="charcter">
+          <div class="card-body">
+          <h5 class="card-title"><%=character.name%></h5>
+          <a href=<%=`/bb/${character.char_id}`%>>Character Page</a>
+          </div>
+      </div>
+  </div>
+  <% }); %>
+</div>
+          </div>
+  </body>
+</html>
