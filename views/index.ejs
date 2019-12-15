@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Joe</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
     <%- include('partials/nav') %>
-   
+
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-3">Bharacters</h1>
-            <p class="lead">Click the show or movie and learn about its characters!</p>
-        </div>
+      <div class="container">
+        <h1 class="display-3">Bharacters</h1>
+        <p class="lead">
+          Click the show or movie and learn about its characters!
+        </p>
+      </div>
     </div>
 
     <div class="card-deck">
-        <div class="card">
-          <img src="images/rnm.jpg" class="card-img-top" alt="rnm">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Data from: </small>
-          </div>
+      <div class="card">
+        <a href="/rnm"
+          ><img src="images/rnm.jpg" class="card-img-top" alt="rnm" />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Rick and Morty</h5>
+          <p class="card-text">
+            Learn some basic info about various characters from the animated
+            show Rick and Morty
+          </p>
         </div>
-        <div class="card">
-          <img src="images/bb.jpeg" class="card-img-top" alt="breakingBad">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/sw.png" class="card-img-top" alt="StarWars">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
+        <div class="card-footer">
+          <small class="text-muted"
+            >Data from:
+            <a href="https://rickandmortyapi.com/">The Rick And Morty API/</a>
+          </small>
         </div>
       </div>
-    
-<!-- 
+
+      <div class="card">
+        <a href="/bb"
+          ><img src="images/bb.jpeg" class="card-img-top" alt="breakingBad"
+        /></a>
+        <div class="card-body">
+          <h5 class="card-title">Breaking Bad</h5>
+          <p class="card-text">
+            Dive into the each character from AMC's tv show Breaking Bad.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"
+            >Data from:
+            <a href="https://breakingbadapi.com/"
+              >The Breaking Bad API</a
+            ></small
+          >
+        </div>
+      </div>
+      <div class="card">
+        <a href="/sw"
+          ><img src="images/sw.png" class="card-img-top" alt="StarWars"
+        /></a>
+        <div class="card-body">
+          <h5 class="card-title">Star Wars</h5>
+          <p class="card-text">
+            Learn a little bit about some of the planets, characters, and films
+            from the Star Wars series.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"
+            >Data from: <a href="https://swapi.co/">SWAPI</a></small
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 
     <script>
         var name = "<%=test%>";
         console.log(name);
@@ -61,5 +91,5 @@
         .then( data => console.log(data));
     </script>
  -->
-</body>
+  </body>
 </html>

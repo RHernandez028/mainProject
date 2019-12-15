@@ -1,23 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
   </head>
   <body>
-
+    <div class="row">
+      <div class="col-sm">
         <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <img src="<%=data.image%>" alt="charImg">
-                <h5 class="card-title"><%=data.name%></h5>
-                </div>
-            </div>
-
-      
+          <img src="<%=data.image%>" alt="charImg" />
+          <div class="card-body">
+            <h5 class="card-title"><%=data.name%></h5>
+            <p>Nickname: <%=data.nickname%></p>
+            <p>Occupation: <br /><%=data.occupation%></p>
+            <p>Played by: <%=data.actor%></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
