@@ -92,4 +92,19 @@ app.get("/bb/:id", async (req, res) => {
   }
 });
 
+app.get("/sw", async (req, res) => {
+  try {
+    swData = await fetch(`https://swapi.co/api/people/`);
+    // .then(res=>res.json());
+    const json = await swData.json();
+    const [...people] = json;
+
+    res.render("swPage", {
+      characters: people
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(PORT);
