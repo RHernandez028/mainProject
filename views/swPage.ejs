@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  </head>
+  <body>
+        <%- include('partials/nav') %>
+
+        <div class="container">
+            <div class="row">
+                <% characters.forEach( (person) =>{ %>
+                        <div class="col-sm">                            
+                        <div class="card" style="width: 18rem;">
+
+                            <%if (person.name === "Luke Skywalker") { %>
+                              <img src="/images/luke.jpeg" class="card-img-top" alt="character">
+                              <% } %>
+                              <%if (person.name === "C-3PO") { %>
+                                <img src="/images/c3po.jpeg" class="card-img-top" alt="character">
+                                <% } %>
+                                <%if (person.name === "R2-D2") { %>
+                                  <img src="/images/r2.jpg" class="card-img-top" alt="character">
+                                  <% } %>
+                                  <%if (person.name === "Darth Vader") { %>
+                                    <img src="/images/vader.jpg" class="card-img-top" alt="character">
+                                    <% } %>
+                                    <%if (person.name === "Leia Organa") { %>
+                                      <img src="/images/leia.jpg" class="card-img-top" alt="character">
+                                      <% } %>
+                                    <%if (person.name === "Owen Lars") { %>
+                                      <img src="/images/owenLars.jpeg" class="card-img-top" alt="character">
+                                      <% } %>
+                                    <%if (person.name === "Beru Whitesun lars") { %>
+                                      <img src="/images/bLars.jpeg" class="card-img-top" alt="character">
+                                      <% } %>
+                                    <%if (person.name === "R5-D4") { %>
+                                      <img src="/images/r5.jpeg" class="card-img-top" alt="character">
+                                      <% } %>
+                                    <%if (person.name === "Biggs Darklighter") { %>
+                                      <img src="/images/biggs.jpeg" class="card-img-top" alt="character">
+                                      <% } %>
+                                    <%if (person.name === "Obi-Wan Kenobi") { %>
+                                      <img src="/images/obi.jpeg" class="card-img-top" alt="character">
+                                      <% } %>
+                                <div class="card-body">
+                                <h5 class="card-title"><%=person.name%></h5>
+                                <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+              </div>
+            </div>
+
+  </body>
+</html>

@@ -94,17 +94,23 @@ app.get("/bb/:id", async (req, res) => {
 
 app.get("/sw", async (req, res) => {
   try {
-    swData = await fetch(`https://swapi.co/api/people/`);
+    const swData = await fetch(`https://swapi.co/api/people/`);
     // .then(res=>res.json());
     const json = await swData.json();
-    const [...people] = json;
+    
+    
+    const [...people] = json.results;
+    // console.log(people);
 
     res.render("swPage", {
-      characters: people
+      characters: people,
+      apiURL: "https://swapi.co/api/"
     });
   } catch (error) {
     console.log(error);
   }
 });
 
-app.listen(PORT);
+    app.listen(process.env.PORT||PORT, () => {
+    console.log(`Server started on ${PORT}`);
+    });
