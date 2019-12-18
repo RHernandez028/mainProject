@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Joe</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    <title>Home</title>
+      <%- include('partials/metaData') %>
   </head>
-  <body>
+  <body style="background-color: #E9ECEF;">
     <%- include('partials/nav') %>
 
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-3">Bharacters</h1>
+        <h1 class="display-3">Characters</h1>
         <p class="lead">
           Click the show or movie and learn about its characters!
         </p>
@@ -91,5 +85,6 @@
         .then( data => console.log(data));
     </script>
  -->
+ <%- include('partials/js') %>
   </body>
 </html>

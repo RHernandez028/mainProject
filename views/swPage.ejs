@@ -2,15 +2,19 @@
 <html lang="en">
   <head>
     <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <%- include('partials/metaData') %>
   </head>
   <body>
         <%- include('partials/nav') %>
+
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+              <h1 class="display-3">Star Wars Characters</h1>
+              <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis modi omnis quod non earum vitae dignissimos, culpa impedit. Sint, non?</p>
+              <hr class="my-2">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi, hic?</p>
+          </div>
+      </div>
 
         <div class="container">
             <div class="row">
@@ -50,13 +54,16 @@
                                       <% } %>
                                 <div class="card-body">
                                 <h5 class="card-title"><%=person.name%></h5>
-                                <p></p>
+                                <p>Height: <%=person.height%></p>
+                                <p>Gender: <%=person.gender%></p>
+                                <p>Birth Year: <%=person.birth_year%></p>
+
                                 </div>
                             </div>
                         </div>
                         <% }); %>
               </div>
             </div>
-
+            <%- include('partials/js') %>
   </body>
 </html>

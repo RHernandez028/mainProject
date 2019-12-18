@@ -85,6 +85,7 @@ app.get("/bb/:id", async (req, res) => {
         nickname: json[0].nickname,
         actor: json[0].portrayed,
         occupation: json[0].occupation
+
       }
     });
   } catch (error) {
